@@ -46,6 +46,7 @@ class Product extends Model
     | - category
     | - status
     | - business
+    | - carts
     |
     */
 
@@ -71,5 +72,10 @@ class Product extends Model
     public function business()
     {
         return $this->belongsTo(Businesses::class, 'business_id');
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
     }
 }

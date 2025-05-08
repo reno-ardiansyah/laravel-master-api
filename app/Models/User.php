@@ -62,6 +62,7 @@ class User extends Authenticatable
     | - socialAccounts
     | - businesses
     | - preferredCategories
+    | - carts
     |
     */
 
@@ -71,6 +72,11 @@ class User extends Authenticatable
     public function socialAccounts(): HasMany
     {
         return $this->hasMany(UserSocialAccount::class);
+    }
+
+    public function carts(): HasMany
+    {
+        return $this->hasMany(Cart::class);
     }
 
     /**
@@ -85,4 +91,5 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(ProductCategorie::class, 'user_preferences')->withTimestamps();
     }
+    
 }
